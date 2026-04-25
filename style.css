@@ -1,0 +1,101 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  color: #fff;
+}
+
+.container {
+  text-align: center;
+  padding: 2rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #e94560;
+}
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.time-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: 10px;
+  min-width: 100px;
+}
+
+.number {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #e94560;
+}
+
+.label {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  margin-top: 0.5rem;
+  color: #aaa;
+}
+
+.input-section {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+input {
+  padding: 0.8rem 1rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+button {
+  padding: 0.8rem 2rem;
+  background: #e94560;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #d13650;
+}
+
+@media (max-width: 600px) {
+  .countdown {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .time-unit {
+    min-width: 80px;
+    padding: 1rem;
+  }
+  
+  .number {
+    font-size: 2rem;
+  }
+}
