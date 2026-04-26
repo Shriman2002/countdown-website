@@ -146,6 +146,89 @@ h1 {
   letter-spacing: 1.5px;
 }
 
+.celebration-message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  font-family: 'Pacifico', cursive, sans-serif;
+  font-size: 3rem;
+  color: #e94560;
+  background: rgba(255, 255, 255, 0.96);
+  padding: 2rem 3rem;
+  border-radius: 28px;
+  box-shadow: 0 12px 40px rgba(233, 69, 96, 0.35);
+  z-index: 1000;
+  text-align: center;
+  animation: celebration-pop 0.9s cubic-bezier(.17,.67,.55,1.32) forwards;
+}
+
+.celebration-message span {
+  display: inline-block;
+  animation: heart-beat 1s ease-in-out infinite;
+}
+
+@keyframes celebration-pop {
+  0%   { transform: translate(-50%, -50%) scale(0) rotate(-15deg); opacity: 0; }
+  60%  { transform: translate(-50%, -50%) scale(1.15) rotate(3deg); opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(1) rotate(0); opacity: 1; }
+}
+
+@keyframes heart-beat {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.25); }
+}
+
+.confetti {
+  position: fixed;
+  top: -24px;
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  z-index: 999;
+  pointer-events: none;
+  animation: confetti-fall linear forwards;
+}
+
+.confetti-emoji {
+  width: auto;
+  height: auto;
+  font-size: 1.6rem;
+  background: transparent !important;
+  border-radius: 0;
+}
+
+@keyframes confetti-fall {
+  0%   { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(110vh) rotate(720deg); opacity: 0.9; }
+}
+
+.celebrating-guy {
+  animation: pulse-guy 0.9s ease-in-out infinite !important;
+}
+
+.celebrating-girl {
+  animation: pulse-girl 0.9s ease-in-out infinite !important;
+}
+
+@keyframes pulse-guy {
+  0%, 100% { transform: translateX(-80px) scale(1); }
+  50%      { transform: translateX(-80px) scale(1.12); }
+}
+
+@keyframes pulse-girl {
+  0%, 100% { transform: translateX(80px) scale(1); }
+  50%      { transform: translateX(80px) scale(1.12); }
+}
+
+@media (max-width: 600px) {
+  .celebration-message {
+    font-size: 1.6rem;
+    padding: 1.2rem 1.5rem;
+    width: 85vw;
+  }
+}
+
 .input-section {
   display: none;
 }

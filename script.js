@@ -19,6 +19,7 @@ function updateCountdown(targetDate) {
     // Move characters together at the end
     animateCharacters(1);
     animateTimerBar(1);
+    triggerCelebration();
     return;
   }
 
@@ -60,6 +61,38 @@ function animateTimerBar(progress) {
   const bar = document.getElementById('timer-bar');
   if (!bar) return;
   bar.style.width = `${Math.max(0, 100 - progress * 100)}%`;
+}
+
+let celebrationTriggered = false;
+function triggerCelebration() {
+  if (celebrationTriggered) return;
+  celebrationTriggered = true;
+
+  const msg = document.createElement('div');
+  msg.className = 'celebration-message';
+  msg.innerHTML = "Together at last! <span>💕</span>";
+  document.body.appendChild(msg);
+
+  const colors = ['#e94560', '#f9d423', '#ffb6b9', '#ff8fa3', '#ffd166', '#ef476f'];
+  const emojis = ['💕', '❤️', '💖', '✨', '🎉', '🌹', '💘'];
+  const total = 120;
+  for (let i = 0; i < total; i++) {
+    const piece = document.createElement('div');
+    piece.className = 'confetti';
+    if (Math.random() < 0.4) {
+      piece.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      piece.classList.add('confetti-emoji');
+    } else {
+      piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+    }
+    piece.style.left = Math.random() * 100 + 'vw';
+    piece.style.animationDelay = Math.random() * 2.5 + 's';
+    piece.style.animationDuration = (3 + Math.random() * 3) + 's';
+    document.body.appendChild(piece);
+  }
+
+  document.getElementById('guy-img').classList.add('celebrating', 'celebrating-guy');
+  document.getElementById('girl-img').classList.add('celebrating', 'celebrating-girl');
 }
 
 
