@@ -63,8 +63,9 @@ function animateTimerBar(progress) {
 }
 
 
-// Set default target date: April 26, 2026, 5:00 PM local time
-const defaultTargetDate = new Date(2026, 3, 26, 17, 0, 0, 0).getTime(); // Month is 0-indexed
+// Set default target date: April 26, 2026, 5:00 PM Eastern Time (anchored to UTC so it's the same moment for everyone).
+// April 26 is during US daylight saving, so 5pm EDT = 21:00 UTC.
+const defaultTargetDate = Date.UTC(2026, 3, 26, 21, 0, 0, 0); // Month is 0-indexed
 
 
 function startCountdown(targetDate) {
